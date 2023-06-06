@@ -18,7 +18,7 @@ class Ofertas extends Controller
         setcookie('oferta', null, 0, "/");
         setcookie('dni_prof', null, 0, "/");
         $vista = "ofertas_v";  //Vista por defecto
-        $menu = "plantilla/menu"; //Menu por defecto 
+        $menu = "plantilla/menu"; //Menu por defecto
         $datos['params'] = $parametros;
         $datos['Ofertas'] = $this->ofertas_m->leerOfertas();
         foreach ($datos['Ofertas'] as $ind => $oferta) {
@@ -33,7 +33,6 @@ class Ofertas extends Controller
     }
     public function imgOferta($cod_oferta)
     {
-
         $ofer = $this->ofertas_m->leerOferta($cod_oferta);
         $profe = $this->profesor_m->ProfesorOferta($ofer['dni_prof']);
         return $this->vehiculo_m->leerVehiculo($profe['vehiculo_practica']);
